@@ -22,7 +22,7 @@ namespace ManagementApp
         {
             services.AddControllersWithViews();
             services.AddDbContext<ManagementDbContext>(options =>
-            options.UseSqlServer(""));
+            options.UseSqlServer(Configuration.GetConnectionString("ManagementConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
