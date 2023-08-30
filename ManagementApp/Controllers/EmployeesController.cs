@@ -2,6 +2,7 @@
 using ManagementApp.Models.Domain;
 using ManagementApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,14 @@ namespace ManagementApp.Controllers
         {
             this.managementDbContext = managementDbContext;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+           var employees = await managementDbContext.Employees.ToListAsync();
+            return View(employees);
+        }
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -38,7 +47,7 @@ namespace ManagementApp.Controllers
 
             await managementDbContext.Employees.AddAsync(employee);
             await managementDbContext.SaveChangesAsync();
-            return RedirectToAction("Add");
+            return RedirectToAction("Index");
         }
     }
 }
