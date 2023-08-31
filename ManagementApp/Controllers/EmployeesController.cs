@@ -49,5 +49,22 @@ namespace ManagementApp.Controllers
             await managementDbContext.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateEmployee updateEmployeeRequest)
+        {
+            var employee = await managementDbContext.Employees.SingleAsync(emp => emp.Id == updateEmployeeRequest.Id);
+
+            employee.Name = updateEmployeeRequest.Name;
+            employee.Email = updateEmployeeRequest.Email;
+            employee.Department = updateEmployeeRequest.Department;
+            employee.DateOfBirth = updateEmployeeRequest.DateOfBirth;
+            employee.Salary = updateEmployeeRequest.Salary;
+
+
+            await managementDbContext.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+        }
     }
 }
