@@ -50,6 +50,13 @@ namespace ManagementApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> View(Guid id)
+        {
+            var employee = await managementDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            return View(employee);
+        }
+
         [HttpPut]
         public async Task<IActionResult> Update(UpdateEmployee updateEmployeeRequest)
         {
@@ -60,7 +67,6 @@ namespace ManagementApp.Controllers
             employee.Department = updateEmployeeRequest.Department;
             employee.DateOfBirth = updateEmployeeRequest.DateOfBirth;
             employee.Salary = updateEmployeeRequest.Salary;
-
 
             await managementDbContext.SaveChangesAsync();
             return RedirectToAction("Index");

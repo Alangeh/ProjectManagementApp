@@ -12,6 +12,7 @@
             <th>Salary</th>
             <th>Date of Birth</th>
             <th>Department</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
                 <td>@employee.Salary</td>
                 <td>@employee.DateOfBirth.ToShortDateString()</td>
                 <td>@employee.Department</td>
+                <td><a class="btn btn-block btn-light" href="Employee/View/@employee.Id">View Employee</a></td>
             </tr>
         }
     </tbody>
