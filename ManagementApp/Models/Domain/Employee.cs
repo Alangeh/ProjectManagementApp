@@ -13,5 +13,6 @@ namespace ManagementApp.Models.Domain
         public double Salary { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Department { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

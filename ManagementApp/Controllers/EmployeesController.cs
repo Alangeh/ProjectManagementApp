@@ -22,7 +22,7 @@ namespace ManagementApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-           var employees = await managementDbContext.Employees.ToListAsync();
+           var employees = await managementDbContext.Employees.Where(a => a.IsDeleted == false).ToListAsync();
             return View(employees);
         }
 
@@ -101,7 +101,8 @@ namespace ManagementApp.Controllers
 
             if (employee != null)
             {
-                managementDbContext.Employees.Remove(employee);
+                //managementDbContext.Employees.Remove(employee);
+                employee.IsDeleted = true;
                 await managementDbContext.SaveChangesAsync();
 
                 return RedirectToAction("Index");
