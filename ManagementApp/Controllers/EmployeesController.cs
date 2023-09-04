@@ -75,7 +75,7 @@ namespace ManagementApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(UpdateEmployee updateEmployeeRequest)
+        public async Task<IActionResult> UpdateEmployee(UpdateEmployee updateEmployeeRequest)
         {
             //var employee = await managementDbContext.Employees.FirstOrDefaultAsync(emp => emp.Id == updateEmployeeRequest.Id);
             var employee = await managementDbContext.Employees.FindAsync(updateEmployeeRequest.Id);
@@ -89,6 +89,21 @@ namespace ManagementApp.Controllers
                 employee.Salary = updateEmployeeRequest.Salary;
 
                 await managementDbContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> DeleteEmployee(UpdateEmployee deleteEmployee)
+        {
+            var employee = await managementDbContext.Employees.FindAsync(deleteEmployee.Id);
+
+            if (employee != null)
+            {
+                managementDbContext.Employees.Remove(employee);
+                await managementDbContext.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
 
