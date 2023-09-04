@@ -54,23 +54,45 @@ namespace ManagementApp.Controllers
         public async Task<IActionResult> View(Guid id)
         {
             var employee = await managementDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
-            return View(employee);
+
+            if (employee != null)
+            {
+                var viewModel = new UpdateEmployee()
+                {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Email = employee.Email,
+                    Salary = employee.Salary,
+                    Department = employee.Department,
+                    DateOfBirth = employee.DateOfBirth
+                };
+
+                return await Task.Run(() => View("View",viewModel));
+            }
+
+           
+            return RedirectToAction("Index");
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Update(UpdateEmployee updateEmployeeRequest)
         {
-            var employee = await managementDbContext.Employees.SingleAsync(emp => emp.Id == updateEmployeeRequest.Id);
+            //var employee = await managementDbContext.Employees.FirstOrDefaultAsync(emp => emp.Id == updateEmployeeRequest.Id);
+            var employee = await managementDbContext.Employees.FindAsync(updateEmployeeRequest.Id);
 
-            employee.Name = updateEmployeeRequest.Name;
-            employee.Email = updateEmployeeRequest.Email;
-            employee.Department = updateEmployeeRequest.Department;
-            employee.DateOfBirth = updateEmployeeRequest.DateOfBirth;
-            employee.Salary = updateEmployeeRequest.Salary;
+            if (employee != null)
+            {
+                employee.Name = updateEmployeeRequest.Name;
+                employee.Email = updateEmployeeRequest.Email;
+                employee.Department = updateEmployeeRequest.Department;
+                employee.DateOfBirth = updateEmployeeRequest.DateOfBirth;
+                employee.Salary = updateEmployeeRequest.Salary;
 
-            await managementDbContext.SaveChangesAsync();
+                await managementDbContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
-
         }
     }
 }

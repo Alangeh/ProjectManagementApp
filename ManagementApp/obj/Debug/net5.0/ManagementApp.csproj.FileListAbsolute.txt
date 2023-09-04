@@ -72,3 +72,4 @@ D:\Lionel\.Net Core 5\ProjectManagementApps\ProjectManagementApp\ManagementApp\o
 D:\Lionel\.Net Core 5\ProjectManagementApps\ProjectManagementApp\ManagementApp\obj\Debug\net5.0\ManagementApp.genruntimeconfig.cache
 D:\Lionel\.Net Core 5\ProjectManagementApps\ProjectManagementApp\ManagementApp\obj\Debug\net5.0\Razor\Views\Employees\Add.cshtml.g.cs
 D:\Lionel\.Net Core 5\ProjectManagementApps\ProjectManagementApp\ManagementApp\obj\Debug\net5.0\Razor\Views\Employees\Index.cshtml.g.cs
+D:\Lionel\.Net Core 5\ProjectManagementApps\ProjectManagementApp\ManagementApp\obj\Debug\net5.0\Razor\Views\Employees\View.cshtml.g.cs
