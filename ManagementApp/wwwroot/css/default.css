@@ -4586,7 +4586,7 @@ button.bg-primary:focus {
   background-color: #13c095 !important; }
 
 .bg-secondary {
-  background-color: #ffffff !important; }
+  background-color: #ffffff; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
@@ -4594,7 +4594,7 @@ button.bg-secondary:focus {
   background-color: #e6e6e6 !important; }
 
 .bg-success {
-  background-color: #00e676 !important; }
+  background-color: #00e676; }
 
 a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
@@ -4602,39 +4602,39 @@ button.bg-success:focus {
   background-color: #00b35c !important; }
 
 .bg-info {
-  background-color: #00e5ff !important; }
+  background-color: #00e5ff; }
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
 button.bg-info:focus {
-  background-color: #00b7cc !important; }
+  background-color: #00b7cc; }
 
 .bg-warning {
-  background-color: #ffea00 !important; }
+  background-color: #ffea00; }
 
 a.bg-warning:hover, a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
-  background-color: #ccbb00 !important; }
+  background-color: #ccbb00; }
 
 .bg-danger {
-  background-color: #ff1744 !important; }
+  background-color: #ff1744; }
 
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus {
-  background-color: #e3002c !important; }
+  background-color: #e3002c; }
 
 .bg-light {
-  background-color: #ECEFF1 !important; }
+  background-color: #ECEFF1; }
 
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #cfd6db !important; }
+  background-color: #cfd6db ; }
 
 .bg-dark {
-  background-color: #11171a !important; }
+  background-color: #11171a; }
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
@@ -4642,10 +4642,11 @@ button.bg-dark:focus {
   background-color: black !important; }
 
 .bg-white {
-  background-color: #ffffff !important; }
+    background-color: #524747;
+}
 
 .bg-transparent {
-  background-color: transparent !important; }
+  background-color: transparent; }
 
 .border {
   border: 2px solid #CFD8DC !important; }
